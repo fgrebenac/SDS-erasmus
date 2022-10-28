@@ -2,15 +2,24 @@
 
 ## Roles and responsibilities
 
-- Ante
+Ante (Product Owner) is responsible for:
+- managing the product backlog
+- adjusting product specifications on the go
+- developing the Spring Boot application
 
-- Filip
+Filip (Developer) is responsible for:
+- developing the Android application
 
-- Jean-Michel
+Jean-Michel (Scrum Master) is responsible for:
+- making sure that communication works
+- organizing team meetings
+- developing the Spring Boot application
 
-- Cecile
+Cecile (Developer) is responsible for:
+- developing the Spring Boot application
 
-- Flavien
+Flavien (Developer) is responsible for:
+- developing the Android application
 
 ## Communication strategies
 
