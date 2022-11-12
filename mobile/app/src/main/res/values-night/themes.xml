@@ -1,0 +1,10 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.SDS" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">#0C0C0D</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColor">@color/color_text</item>
+        <item name="android:colorEdgeEffect">@color/color_gold</item>
+        <item name="colorSecondary">#E2C675</item>
+    </style>
+</resources>

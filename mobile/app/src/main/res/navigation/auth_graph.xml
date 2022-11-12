@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_graph"
+    app:startDestination="@id/login_fragment">
+
+    <fragment
+        android:id="@+id/registration_fragment"
+        android:name="com.erasmus.sds.ui.auth.registration.RegistrationFragment"
+        android:label="Registration">
+
+        <action
+            android:id="@+id/navigate_to_login"
+            app:destination="@id/login_fragment"
+            app:enterAnim="@anim/enter_from_right_anim"
+            app:exitAnim="@anim/exit_to_left_anim"
+            app:popEnterAnim="@anim/enter_from_left_anim"
+            app:popExitAnim="@anim/exit_to_right_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.erasmus.sds.ui.auth.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+
+</navigation>

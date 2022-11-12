@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_background">#FFFFFF</color>
+    <color name="color_background_50">#80FFFFFF</color>
+    <color name="color_background_25">#40FFFFFF</color>
+
+    <color name="color_text_edit_background">#FFFFFF</color>
+    <color name="color_success_green">#27AE60</color>
+    <color name="color_alert_red">#EB5757</color>
+    <color name="color_info_blue">#15549E</color>
+
+    <color name="color_gradient_yellow">#E2C675</color>
+
+    <color name="color_gold">#C3922E</color>
+    <color name="color_gold_light">#E2C675</color>
+
+    <color name="color_text_gold">#C3922E</color>
+
+    <color name="color_bottom_navigation_selected">#C3922E</color>
+    <color name="color_bottom_navigation_unselected">#1B1C1E</color>
+
+    <color name="color_text">#1B1C1E</color>
+    <color name="color_text_light">#858E8D</color>
+    <color name="color_text_white">#FFFFFF</color>
+    <color name="color_text_black">#1B1C1E</color>
+    <color name="color_text_hint">#858E8D</color>
+    <color name="color_text_unavailable">#B4B4B4</color>
+    <color name="color_divider">#33B4B4B4</color>
+
+    <color name="color_attachment_card_background">#FFFFFF</color>
+
+    <color name="color_unavailable_shadow">#1B1C1E</color>
+</resources>

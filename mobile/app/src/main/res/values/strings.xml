@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SDS</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_in_failed">Sign in failed</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+</resources>
