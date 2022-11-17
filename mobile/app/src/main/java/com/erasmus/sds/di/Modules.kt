@@ -1,6 +1,10 @@
 package com.erasmus.sds.di
 
 import com.erasmus.sds.BuildConfig
+import com.erasmus.sds.network.login.LoginRepository
+import com.erasmus.sds.network.registration.RegistrationRepository
+import com.erasmus.sds.ui.auth.login.LoginViewModel
+import com.erasmus.sds.ui.auth.registration.RegistrationViewModel
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
@@ -11,13 +15,19 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 
 val viewModelModule = module {
+    single { RegistrationViewModel(get()) }
+    single { LoginViewModel(get()) }
 }
 
 val repositoryModule = module {
+    single { RegistrationRepository(get()) }
+    single { LoginRepository(get()) }
 }
 
 val networkModule = module {
     factory { provideOkHttpClient() }
+    factory { provideRegistrationApi(get()) }
+    factory { provideLoginApi(get()) }
     single { provideRetrofit(get()) }
 }
 

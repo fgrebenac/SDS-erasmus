@@ -10,4 +10,5 @@
     <string name="password_must_be_longer_than_6_characters">Password must be longer than 6 characters</string>
     <string name="passwords_do_not_match">Passwords do not match</string>
     <string name="register">Register</string>
+    <string name="login_error">Sign in failed</string>
 </resources>
