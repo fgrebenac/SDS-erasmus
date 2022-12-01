@@ -31,17 +31,14 @@ public class AppUserServiceJpa implements AppUserService {
     public AppUser createUser(AppUser user) {
         System.out.println(user.getEmail());
         System.out.println(user.getPassword());
-        System.out.println(user.getLast_name());
-        System.out.println(user.getFirst_name());
+        System.out.println(user.getLastName());
+        System.out.println(user.getFirstName());
         validate(user);
 
         if (appUserRepo.countByEmail(user.getEmail()) > 0) {
             throw new RequestDeniedException("User with email " + user.getEmail() + "already exists");
         }
 
-        if (user.getHomeCountryID() == null) {
-            user.setHomeCountryId(UUID(null));
-        }
         return appUserRepo.save(user);
     }
 
@@ -91,11 +88,11 @@ public class AppUserServiceJpa implements AppUserService {
         String email = user.getEmail();
         System.out.println(email);
         System.out.println(user.getPassword());
-        System.out.println(user.getLast_name());
+        System.out.println(user.getLastName());
         Assert.hasText(email, "Email must be given");
 //        Assert.isTrue(email.matches(VALID_EMAIL_ADDRESS_REGEX), "Email must be in valid format");
-        Assert.notNull(user.getFirst_name(), "User must have a first name");
-        Assert.notNull(user.getLast_name(), "User must have a last name");
+        Assert.notNull(user.getFirstName(), "User must have a first name");
+        Assert.notNull(user.getLastName(), "User must have a last name");
         Assert.notNull(user.getPassword(), "User must have a password");
 //        Assert.notNull(user.getEmail(), "User must have a country set");
         Assert.isNull(user.getToken(), "User must not have a token set");

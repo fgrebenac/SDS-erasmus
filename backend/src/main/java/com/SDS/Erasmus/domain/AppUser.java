@@ -1,6 +1,7 @@
 package com.SDS.Erasmus.domain;
 
 import com.sun.istack.NotNull;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -10,11 +11,13 @@ import java.util.UUID;
 public class AppUser {
 
     @Id
+    @Type(type = "pg-uuid")
+    @Column(name = "id", columnDefinition = "uuid", insertable = false)
     @GeneratedValue
     private UUID id;
 
     @NotNull
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
     @NotNull
@@ -22,16 +25,16 @@ public class AppUser {
     private String lastName;
 
     @NotNull
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
 
     @NotNull
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToOne()
-    @JoinColumn(name="home_country_id")
-    private Country homeCountryID;
+    @Column(name = "home_country_id", columnDefinition = "uuid")
+    @Type(type = "pg-uuid")
+    private UUID homeCountryID;
 
     private String token;
 
@@ -39,12 +42,12 @@ public class AppUser {
         return id;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getEmail() {
@@ -55,11 +58,7 @@ public class AppUser {
         return password;
     }
 
-    public void setHomeCountryID(Country homeCountryID) {
-        this.homeCountryID = homeCountryID;
-    }
-
-    public Country getHomeCountryID() {
+    public UUID getHomeCountryID() {
         return homeCountryID;
     }
 
