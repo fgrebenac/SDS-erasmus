@@ -14,15 +14,19 @@ public class AppUser {
     private UUID id;
 
     @NotNull
-    private String first_name;
+    @Column(name = "last_name", nullable = false)
+    private String firstName;
 
     @NotNull
-    private String last_name;
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
 
     @NotNull
+    @Column(name = "last_name", nullable = false)
     private String email;
 
     @NotNull
+    @Column(name = "last_name", nullable = false)
     private String password;
 
     @OneToOne()
@@ -31,4 +35,35 @@ public class AppUser {
 
     private String token;
 
+    public UUID getId() {
+        return id;
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setHomeCountryID(Country homeCountryID) {
+        this.homeCountryID = homeCountryID;
+    }
+
+    public Country getHomeCountryID() {
+        return homeCountryID;
+    }
+
+    public String getToken() {
+        return token;
+    }
 }
