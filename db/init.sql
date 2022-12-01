@@ -12,9 +12,9 @@ CREATE TABLE app_user(
 	id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
 	first_name VARCHAR(50) NOT NULL,
 	last_name VARCHAR(50) NOT NULL,
-	email VARCHAR(50) NOT NULL,
+	email VARCHAR(50) NOT NULL UNIQUE,
 	password VARCHAR(255) NOT NULL,
-	home_country_id UUID  NOT NULL,
+	home_country_id UUID,
 	CONSTRAINT fk_home_country_id FOREIGN KEY(home_country_id) REFERENCES country(id),
 	token VARCHAR(50));
 

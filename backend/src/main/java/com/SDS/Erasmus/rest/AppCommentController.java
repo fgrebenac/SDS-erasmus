@@ -1,4 +1,4 @@
-package com.SDS.Erasmus;
+package com.SDS.Erasmus.rest;
 
 import com.SDS.Erasmus.domain.AppComment;
 import com.SDS.Erasmus.service.AppCommentService;
