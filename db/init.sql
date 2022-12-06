@@ -30,7 +30,7 @@ CREATE TABLE thread(
 	content VARCHAR(50),
 	user_id UUID NOT NULL,
 	CONSTRAINT fk_user_id FOREIGN KEY(user_id) REFERENCES app_user(id),
-	category_id UUID NOT NULL,
+	category_id UUID,-- NOT NULL, not included in this sprint
 	CONSTRAINT fk_category_id FOREIGN KEY(category_id) REFERENCES category(id));
 
 CREATE TABLE app_comment(
