@@ -14,4 +14,22 @@
         <item name="android:background">@drawable/background_button</item>
     </style>
 
+    <style name="LargeButtonWhite" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_marginHorizontal">12dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/jost_medium</item>
+        <item name="android:fontWeight">500</item>
+        <item name="android:textColor">@color/color_gold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">@drawable/background_button_white</item>
+    </style>
+
+    <style name="BottomNavigationView">
+        <item name="android:fontFamily">@font/jost_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.erasmus.sds.R
 import com.erasmus.sds.databinding.FragmentRegistrationBinding
 import com.erasmus.sds.ui.views.IconEditText
@@ -50,6 +51,7 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
         })
         binding.registerButton.onClickDebounced {
             // TODO viewModel.register()
+            findNavController().navigate(RegistrationFragmentDirections.navigateToLogin())
         }
     }
 
