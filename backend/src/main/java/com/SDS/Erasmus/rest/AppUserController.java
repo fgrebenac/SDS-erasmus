@@ -46,5 +46,11 @@ public class AppUserController {
         return appUserService.deleteUser(userId);
     }
 
+    //simple log in method, jwt and encryption may be added later
+    @PostMapping("/log-in")
+    public UUID logIn(@RequestBody AppUser user) {
+        return appUserService.logIn(user);
+    }
+
 
 }
