@@ -15,9 +15,9 @@ import java.util.UUID;
 
 @Service
 public class AppUserServiceJpa implements AppUserService {
-//todo email regex
-//    private static final String VALID_EMAIL_ADDRESS_REGEX = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@\" \n" +
-//            "+\"[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$";
+
+    //simple email regex
+    private static final String VALID_EMAIL_ADDRESS_REGEX = "^.+@.+\\..+$";
 
     @Autowired
     private AppUserRepository appUserRepo;
@@ -29,14 +29,10 @@ public class AppUserServiceJpa implements AppUserService {
 
     @Override
     public AppUser createUser(AppUser user) {
-        System.out.println(user.getEmail());
-        System.out.println(user.getPassword());
-        System.out.println(user.getLastName());
-        System.out.println(user.getFirstName());
         validate(user);
 
         if (appUserRepo.countByEmail(user.getEmail()) > 0) {
-            throw new RequestDeniedException("User with email " + user.getEmail() + "already exists");
+            throw new RequestDeniedException("User with email \"" + user.getEmail() + "\" already exists");
         }
 
         return appUserRepo.save(user);
@@ -71,6 +67,15 @@ public class AppUserServiceJpa implements AppUserService {
     }
 
     @Override
+    public UUID logIn(AppUser user) {
+        Optional<AppUser> optionalUser = findByEmail(user.getEmail());
+        if (optionalUser.isPresent() && optionalUser.get().getPassword().equals(user.getPassword())) {
+            return optionalUser.get().getId();
+        }
+        throw new RequestDeniedException("Email and password do not match");
+    }
+
+    @Override
     public Optional<AppUser> findById(UUID userId) {
         return appUserRepo.findById(userId);
     }
@@ -83,18 +88,14 @@ public class AppUserServiceJpa implements AppUserService {
     }
 
     private void validate(AppUser user){
-        System.out.println(user);
         Assert.notNull(user,"User object must ge given");
         String email = user.getEmail();
-        System.out.println(email);
-        System.out.println(user.getPassword());
-        System.out.println(user.getLastName());
         Assert.hasText(email, "Email must be given");
-//        Assert.isTrue(email.matches(VALID_EMAIL_ADDRESS_REGEX), "Email must be in valid format");
+        Assert.isTrue(email.matches(VALID_EMAIL_ADDRESS_REGEX), "Email must be in valid format");
         Assert.notNull(user.getFirstName(), "User must have a first name");
         Assert.notNull(user.getLastName(), "User must have a last name");
         Assert.notNull(user.getPassword(), "User must have a password");
-//        Assert.notNull(user.getEmail(), "User must have a country set");
+//        Assert.notNull(user.getCountry(), "User must have a country set");
         Assert.isNull(user.getToken(), "User must not have a token set");
 
     }
