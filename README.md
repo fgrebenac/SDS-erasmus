@@ -26,3 +26,8 @@ Flavien (Developer) is responsible for:
 Discord server
 
 ## Installation manual
+
+### Running backend
+Position yourself to the **backend folder** and run `./mvnw spring-boot:run` command. 
+
+This will start backend application on **localhost:8080**.
