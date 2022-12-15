@@ -1,10 +1,12 @@
 package com.erasmus.sds.ui.auth.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.erasmus.sds.R
 import com.erasmus.sds.databinding.FragmentLoginBinding
+import com.erasmus.sds.ui.main.MainActivity
 import com.erasmus.sds.ui.views.IconEditText
 import com.erasmus.sds.utils.onClickDebounced
 import com.erasmus.sds.utils.viewBinding
@@ -33,6 +35,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         })
         loginButton.onClickDebounced {
             // TODO viewModel.signIn
+            startMainActivity()
         }
     }
 
@@ -45,5 +48,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun removeError() {
         binding.usernameEditText.removeError()
         binding.usernameErrorView.visibility = View.GONE
+    }
+
+    private fun startMainActivity() {
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        requireActivity().startActivity(intent)
+        requireActivity().overridePendingTransition(
+            R.anim.enter_from_right_anim,
+            R.anim.exit_to_left_anim
+        )
+        requireActivity().finish()
     }
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/faculty_fragment">
+
+    <fragment
+        android:id="@+id/faculty_fragment"
+        android:name="com.erasmus.sds.ui.main.faculty.FacultyFragment"
+        android:label="Faculty"
+        tools:layout="@layout/fragment_threads">
+
+        <action
+            android:id="@+id/open_create_thread"
+            app:destination="@id/create_thread_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/social_fragment"
+        android:name="com.erasmus.sds.ui.main.social.SocialFragment"
+        android:label="Social"
+        tools:layout="@layout/fragment_threads">
+
+        <action
+            android:id="@+id/open_create_thread"
+            app:destination="@id/create_thread_fragment" />
+
+    </fragment>
+
+    <dialog
+        android:id="@+id/create_thread_fragment"
+        android:name="com.erasmus.sds.ui.main.threads.CreateThreadFragment"
+        android:label="Create thread"
+        tools:layout="@layout/fragment_create_thread" />
+
+</navigation>

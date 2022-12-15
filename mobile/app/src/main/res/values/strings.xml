@@ -11,4 +11,12 @@
     <string name="passwords_do_not_match">Passwords do not match</string>
     <string name="register">Register</string>
     <string name="login_error">Sign in failed</string>
+    <string name="faculty">Faculty</string>
+    <string name="social">Social</string>
+    <string name="title_hint">Enter thread title</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
+    <string name="content_hint">Enter thread content</string>
+    <string name="post_thread">Post thread</string>
+    <string name="cancel">Cancel</string>
 </resources>

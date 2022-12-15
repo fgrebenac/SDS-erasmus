@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/faculty_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_faculty"
+        android:title="@string/faculty" />
+    <item
+        android:id="@+id/social_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_social"
+        android:title="@string/social" />
+</menu>
