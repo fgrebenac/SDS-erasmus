@@ -1,25 +1,12 @@
 # Api documentation
 ## Users
 ### Models
-`AppUser(
-    id: UUID,
-    first_name: String,
-    last_name: String,
-    email: String,
-    password: String
-)`
+`
+AppUser(id: UUID, first_name: String, last_name: String, email: String, password: String)`
 
-`RegistrationBody(
-    firstName: String,
-    lastName: String,
-    email: String,
-    password: String
-)`
+`RegistrationBody(firstName: String, lastName: String, email: String, password: String)`
 
-`LoginBody(
-    email: String,
-    password: String
-)`
+`LoginBody(email: String, password: String)`
 
 ### Endpoints
 - GET /users
@@ -31,11 +18,7 @@
 
 ## Threads
 ### Models
-`Thread(
-    id: UUID,
-    title: String,
-    content: String
-)`
+`Thread(id: UUID, title: String, content: String)`
 
 ### Endpoints
 - GET /threads
