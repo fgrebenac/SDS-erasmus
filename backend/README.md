@@ -1,25 +1,25 @@
 # Api documentation
 ## Users
 ### Models
-AppUser(
+`AppUser(
     id: UUID,
     first_name: String,
     last_name: String,
     email: String,
     password: String
-)
+)`
 
-RegistrationBody(
+`RegistrationBody(
     firstName: String,
     lastName: String,
     email: String,
     password: String
-)
+)`
 
-LoginBody(
+`LoginBody(
     email: String,
     password: String
-)
+)`
 
 ### Endpoints
 - GET /users
@@ -31,11 +31,11 @@ LoginBody(
 
 ## Threads
 ### Models
-Thread(
+`Thread(
     id: UUID,
     title: String,
     content: String
-)
+)`
 
 ### Endpoints
 - GET /threads
