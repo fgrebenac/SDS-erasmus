@@ -20,10 +20,21 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        viewModel.loginResult.observe(viewLifecycleOwner) {
+            // TODO save user
+            startMainActivity()
+        }
+        viewModel.loginError.observe(viewLifecycleOwner) {
+            setEmailError()
+        }
     }
 
     private fun initViews() = binding.apply {
-        usernameEditText.setListener(object : IconEditText.OnTextListener {
+        emailEditText.setListener(object : IconEditText.OnTextListener {
             override fun onTextChanged() {
                 removeError()
             }
@@ -34,19 +45,19 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             }
         })
         loginButton.onClickDebounced {
-            // TODO viewModel.signIn
+            viewModel.loginUser(binding.emailEditText.getText(), binding.passwordEditText.getText())
             startMainActivity()
         }
     }
 
-    private fun setUsernameError() {
-        binding.usernameEditText.setError()
+    private fun setEmailError() {
+        binding.emailEditText.setError()
         binding.errorDescription.text = getString(R.string.login_error)
         binding.usernameErrorView.visibility = View.VISIBLE
     }
 
     private fun removeError() {
-        binding.usernameEditText.removeError()
+        binding.emailEditText.removeError()
         binding.usernameErrorView.visibility = View.GONE
     }
 

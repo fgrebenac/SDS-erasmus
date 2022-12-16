@@ -5,14 +5,11 @@ import com.erasmus.sds.network.login.LoginRepository
 import com.erasmus.sds.network.registration.RegistrationRepository
 import com.erasmus.sds.ui.auth.login.LoginViewModel
 import com.erasmus.sds.ui.auth.registration.RegistrationViewModel
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.json.Json
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 val viewModelModule = module {
     single { RegistrationViewModel(get()) }
@@ -31,12 +28,10 @@ val networkModule = module {
     single { provideRetrofit(get()) }
 }
 
-@OptIn(ExperimentalSerializationApi::class)
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-    val contentType = "application/json".toMediaType()
     return Retrofit.Builder()
         .baseUrl(BuildConfig.API_URL).client(okHttpClient)
-        .addConverterFactory(Json.asConverterFactory(contentType))
+        .addConverterFactory(MoshiConverterFactory.create())
         .build()
 }
 
