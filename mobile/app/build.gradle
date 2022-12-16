@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs.kotlin'
-    id 'kotlinx-serialization'
 }
 
 android {
@@ -29,7 +28,7 @@ android {
             initWith debug
             applicationIdSuffix ".demo"
             versionNameSuffix "-demo"
-            buildConfigField("String", "API_URL", '\"real_backend_url.com\"')
+            buildConfigField("String", "API_URL", '\"http://10.0.2.2:8080/\"')
         }
     }
     compileOptions {
@@ -53,7 +52,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     // Ui
     implementation 'com.google.android.material:material:1.7.0'
-    implementation 'androidx.fragment:fragment:1.5.4'
+    implementation 'androidx.fragment:fragment:1.5.5'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation "androidx.recyclerview:recyclerview:1.2.1"
@@ -77,6 +76,5 @@ dependencies {
     // Image loading
     implementation 'io.coil-kt:coil:2.1.0'
     // Serialization
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0"
-    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
 }

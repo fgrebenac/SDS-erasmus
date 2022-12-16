@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
     android:background="@color/color_background">
 
@@ -196,56 +196,11 @@
 
             </LinearLayout>
 
-            <com.erasmus.sds.ui.views.IconEditText
-                android:id="@+id/repeat_password_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/background_round_edit_text"
-                android:elevation="4dp"
-                app:editTextIcon="@drawable/ic_password"
-                app:hint="Repeat password"
-                app:isPassword="true"
-                app:layout_constraintTop_toBottomOf="@id/password_error_view"
-                app:layout_goneMarginTop="20dp" />
-
-            <LinearLayout
-                android:id="@+id/repeat_password_error_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="33dp"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@id/repeat_password_edit_text"
-                app:layout_constraintTop_toBottomOf="@id/repeat_password_edit_text"
-                tools:ignore="UseCompoundDrawables"
-                tools:visibility="visible">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alert"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/repeat_password_error_description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:fontFamily="@font/jost_medium"
-                    android:text="@string/passwords_do_not_match"
-                    android:textColor="@color/color_alert_red"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                app:layout_constraintTop_toBottomOf="@id/repeat_password_error_view"
+                app:layout_constraintTop_toBottomOf="@id/password_error_view"
                 app:layout_goneMarginTop="20dp" />
 
             <View
@@ -257,15 +212,24 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-
     <TextView
         android:id="@+id/register_button"
         style="@style/LargeButtonGold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/register"
+        app:layout_constraintBottom_toTopOf="@id/go_to_login_button" />
+
+    <TextView
+        android:id="@+id/go_to_login_button"
+        style="@style/LargeButtonWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:text="@string/register"
+        android:text="@string/go_to_login"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

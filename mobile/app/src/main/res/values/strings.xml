@@ -19,4 +19,6 @@
     <string name="content_hint">Enter thread content</string>
     <string name="post_thread">Post thread</string>
     <string name="cancel">Cancel</string>
+    <string name="go_to_login">Go to login</string>
+    <string name="create_new_thread">Create new thread</string>
 </resources>

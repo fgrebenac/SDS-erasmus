@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/logo"
         android:layout_width="300dp"
-        android:layout_height="128dp"
+        android:layout_height="100dp"
         android:layout_marginTop="100dp"
         android:src="@drawable/erasmus"
         app:layout_constraintEnd_toEndOf="parent"

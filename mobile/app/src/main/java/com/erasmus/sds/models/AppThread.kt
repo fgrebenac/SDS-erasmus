@@ -1,13 +1,13 @@
 package com.erasmus.sds.models
 
-import kotlinx.serialization.SerialName
+import com.squareup.moshi.Json
 
 data class AppThread(
     val id: String,
     val title: String,
     val content: String,
-    @SerialName("user_id")
+    @Json(name = "user_id")
     val userId: String,
-    @SerialName("category_id")
+    @Json(name = "category_id")
     val categoryId: String
 )
