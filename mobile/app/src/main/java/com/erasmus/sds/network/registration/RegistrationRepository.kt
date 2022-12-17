@@ -1,9 +1,9 @@
 package com.erasmus.sds.network.registration
 
-import com.erasmus.sds.models.RegisterBody
+import com.erasmus.sds.models.RegistrationBody
 
 class RegistrationRepository(private val apiService: RegistrationApiService) {
 
-    suspend fun registerUser(body: RegisterBody) = apiService.register(body)
+    suspend fun registerUser(body: RegistrationBody) = apiService.register(body)
 
 }

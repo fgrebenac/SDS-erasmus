@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.erasmus.sds.R
 import com.erasmus.sds.databinding.FragmentLoginBinding
 import com.erasmus.sds.ui.main.MainActivity
@@ -47,6 +48,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         loginButton.onClickDebounced {
             viewModel.loginUser(binding.emailEditText.getText(), binding.passwordEditText.getText())
             startMainActivity()
+        }
+        goToRegistrationButton.onClickDebounced {
+            findNavController().popBackStack()
         }
     }
 

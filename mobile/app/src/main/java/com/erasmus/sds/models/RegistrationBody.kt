@@ -1,6 +1,6 @@
 package com.erasmus.sds.models
 
-data class RegisterBody(
+data class RegistrationBody(
     val firstName: String,
     val lastName: String,
     val email: String,
