@@ -84,9 +84,19 @@
         style="@style/LargeButtonGold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/sign_in"
+        app:layout_constraintBottom_toTopOf="@id/go_to_registration_button" />
+
+    <TextView
+        android:id="@+id/go_to_registration_button"
+        style="@style/LargeButtonWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:text="@string/sign_in"
+        android:text="@string/go_to_registration"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

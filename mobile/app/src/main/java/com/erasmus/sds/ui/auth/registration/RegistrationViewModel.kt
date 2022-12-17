@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.erasmus.sds.models.AppUser
-import com.erasmus.sds.models.RegisterBody
+import com.erasmus.sds.models.RegistrationBody
 import com.erasmus.sds.network.registration.RegistrationRepository
 import kotlinx.coroutines.launch
 
@@ -16,7 +16,7 @@ class RegistrationViewModel(private val repository: RegistrationRepository) : Vi
     fun registerUser(firstName: String, lastName: String, email: String, password: String) =
         viewModelScope.launch {
             val response =
-                repository.registerUser(RegisterBody(firstName, lastName, email, password))
+                repository.registerUser(RegistrationBody(firstName, lastName, email, password))
             if (response.isSuccessful) {
                 registerResult.value = response.body()
             } else {

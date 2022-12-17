@@ -68,7 +68,7 @@
         android:fontFamily="@font/jost_regular"
         android:hint="@string/content_hint"
         android:importantForAutofill="no"
-        android:inputType="textCapSentences"
+        android:inputType="textCapSentences|textMultiLine"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
