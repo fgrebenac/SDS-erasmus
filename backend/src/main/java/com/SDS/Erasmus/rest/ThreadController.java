@@ -1,13 +1,15 @@
 package com.SDS.Erasmus.rest;
 
+import com.SDS.Erasmus.domain.AppUser;
 import com.SDS.Erasmus.domain.Thread;
 import com.SDS.Erasmus.service.ThreadService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.net.URI;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/threads")
@@ -19,6 +21,29 @@ public class ThreadController {
     @GetMapping("")
     public List<Thread> listThreads() {
         return threadService.listAll();
+    }
+
+    @PostMapping("")
+    public ResponseEntity<Thread> createThread(@RequestBody Thread thread) {
+        Thread saved = threadService.createThread(thread);
+        return ResponseEntity.created(URI.create("/threads/" + saved.getId())).body(saved);
+    }
+
+    @PutMapping("/{id}")
+    public Thread updateThread(@PathVariable("id") UUID id, @RequestBody Thread thread) {
+        if (!thread.getId().equals(id))
+            throw new IllegalArgumentException("Thread ID must be preserved");
+        return threadService.updateThread(thread);
+    }
+
+    @DeleteMapping("/{id}")
+    public Thread deleteAppUser(@PathVariable("id") UUID threadId) {
+        return threadService.deleteThread(threadId);
+    }
+
+    @GetMapping("/{id}")
+    public Thread getThread(@PathVariable("id") UUID threadId) {
+        return threadService.fetch(threadId);
     }
 
 
