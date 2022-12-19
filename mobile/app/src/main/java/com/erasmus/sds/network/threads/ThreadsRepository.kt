@@ -1,9 +1,11 @@
-package com.erasmus.sds.network.registration
+package com.erasmus.sds.network.threads
 
 import com.erasmus.sds.models.RegistrationBody
 
-class RegistrationRepository(private val apiService: RegistrationApiService) {
+class ThreadsRepository(private val apiService: ThreadsApiService) {
 
-    suspend fun registerUser(body: RegistrationBody) = apiService.register(body)
+    suspend fun getThreads(body: RegistrationBody) = apiService.getThreads(body)
+
+    suspend fun addThread(body: RegistrationBody) = apiService.addThread(body)
 
 }

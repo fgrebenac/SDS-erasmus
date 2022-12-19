@@ -1,4 +1,4 @@
-package com.erasmus.sds.network.registration
+package com.erasmus.sds.network.threads
 
 import com.erasmus.sds.models.AppUser
 import com.erasmus.sds.models.RegistrationBody
@@ -6,9 +6,12 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-interface RegistrationApiService {
+interface ThreadsApiService {
 
-    @POST("users")
-    suspend fun register(@Body body: RegistrationBody): Response<AppUser>
+    @POST("threads")
+    suspend fun getThreads(@Body body: RegistrationBody): Response<AppUser>
+
+    @POST("create-thread")
+    suspend fun addThread(@Body body: RegistrationBody): Response<AppUser>
 
 }
