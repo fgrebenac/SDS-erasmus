@@ -9,3 +9,6 @@ fun provideRegistrationApi(retrofit: Retrofit): RegistrationApiService =
 
 fun provideLoginApi(retrofit: Retrofit): LoginApiService =
     retrofit.create(LoginApiService::class.java)
+
+fun provideThreadsApi(retrofit: Retrofit): LoginApiService =
+    retrofit.create(LoginApiService::class.java)
