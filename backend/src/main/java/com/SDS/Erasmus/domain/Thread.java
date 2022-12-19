@@ -24,13 +24,13 @@ public class Thread {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @OneToOne()
-    @JoinColumn(name="user_id")
-    private AppUser user;
+    @NotNull
+    @Column(name = "user_id", columnDefinition = "uuid")
+    @Type(type = "pg-uuid")
+    private UUID userID;
 
-    @OneToOne()
-    @JoinColumn(name="category_id")
-    private Category category;
+    @Column(name="category_id")
+    private UUID categoryID;
 
     public UUID getId() {
         return id;
@@ -44,6 +44,11 @@ public class Thread {
         return content;
     }
 
+    public UUID getUserID() {
+        return userID;
+    }
 
-
+    public UUID getCategoryID() {
+        return categoryID;
+    }
 }

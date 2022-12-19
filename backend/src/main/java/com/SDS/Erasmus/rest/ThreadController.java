@@ -23,11 +23,6 @@ public class ThreadController {
         return threadService.listAll();
     }
 
-    //@GetMapping("/{id}")
-    //public Thread getThread(@PathVariable("id") UUID id) {
-    //    return threadService.fetch(id);
-    //}
-
     @PostMapping("")
     public ResponseEntity<Thread> createThread(@RequestBody Thread thread) {
         Thread saved = threadService.createThread(thread);
@@ -41,6 +36,15 @@ public class ThreadController {
         return threadService.updateThread(thread);
     }
 
+    @DeleteMapping("/{id}")
+    public Thread deleteAppUser(@PathVariable("id") UUID threadId) {
+        return threadService.deleteThread(threadId);
+    }
+
+    @GetMapping("/{id}")
+    public Thread getThread(@PathVariable("id") UUID threadId) {
+        return threadService.fetch(threadId);
+    }
 
 
 }

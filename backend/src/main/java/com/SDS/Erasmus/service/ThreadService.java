@@ -14,4 +14,8 @@ public interface ThreadService {
 
     Thread updateThread(Thread thread);
 
+    Thread deleteThread(UUID threadId);
+
+    Thread fetch(UUID threadId);
+
 }
