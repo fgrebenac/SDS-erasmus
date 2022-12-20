@@ -6,6 +6,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.erasmus.sds.R
 import com.erasmus.sds.databinding.ActivityMainBinding
+import com.erasmus.sds.utils.PreferenceHelper
 import com.erasmus.sds.utils.viewBinding
 
 class MainActivity : FragmentActivity() {
@@ -18,6 +19,11 @@ class MainActivity : FragmentActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         binding.bottomNavigation.setupWithNavController(navHostFragment.navController)
+        binding.userText.text =
+            getString(
+                R.string.hi_user_format,
+                PreferenceHelper.defaultPrefs(this).getString("firstName", "")
+            )
     }
 
 }

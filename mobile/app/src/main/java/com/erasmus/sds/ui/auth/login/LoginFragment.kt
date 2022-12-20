@@ -7,8 +7,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.erasmus.sds.R
 import com.erasmus.sds.databinding.FragmentLoginBinding
+import com.erasmus.sds.models.AppUser
 import com.erasmus.sds.ui.main.MainActivity
 import com.erasmus.sds.ui.views.IconEditText
+import com.erasmus.sds.utils.PreferenceHelper
+import com.erasmus.sds.utils.PreferenceHelper.set
 import com.erasmus.sds.utils.onClickDebounced
 import com.erasmus.sds.utils.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -26,7 +29,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun observeViewModel() {
         viewModel.loginResult.observe(viewLifecycleOwner) {
-            // TODO save user
+            saveUserData(it)
             startMainActivity()
         }
         viewModel.loginError.observe(viewLifecycleOwner) {
@@ -73,5 +76,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             R.anim.exit_to_left_anim
         )
         requireActivity().finish()
+    }
+
+    private fun saveUserData(appUser: AppUser) {
+        PreferenceHelper.defaultPrefs(requireContext())["firstName"] = appUser.firstName
+        PreferenceHelper.defaultPrefs(requireContext())["lastName"] = appUser.lastName
+        PreferenceHelper.defaultPrefs(requireContext())["email"] = appUser.email
+        PreferenceHelper.defaultPrefs(requireContext())["id"] = appUser.id
     }
 }
