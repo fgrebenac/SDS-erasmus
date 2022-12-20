@@ -3,6 +3,7 @@ package com.erasmus.sds.di
 import com.erasmus.sds.BuildConfig
 import com.erasmus.sds.network.login.LoginRepository
 import com.erasmus.sds.network.registration.RegistrationRepository
+import com.erasmus.sds.network.threads.ThreadsRepository
 import com.erasmus.sds.ui.auth.login.LoginViewModel
 import com.erasmus.sds.ui.auth.registration.RegistrationViewModel
 import okhttp3.OkHttpClient
@@ -25,6 +26,7 @@ val networkModule = module {
     factory { provideOkHttpClient() }
     factory { provideRegistrationApi(get()) }
     factory { provideLoginApi(get()) }
+    factory { provideThreadsApi(get()) }
     single { provideRetrofit(get()) }
 }
 
