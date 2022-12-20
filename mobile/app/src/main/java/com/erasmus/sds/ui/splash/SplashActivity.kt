@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.erasmus.sds.R
 import com.erasmus.sds.databinding.ActivitySplashBinding
 import com.erasmus.sds.ui.auth.AuthActivity
+import com.erasmus.sds.ui.main.MainActivity
+import com.erasmus.sds.utils.PreferenceHelper
 import com.erasmus.sds.utils.viewBinding
 
 @SuppressLint("CustomSplashScreen")
@@ -18,7 +20,6 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        observeViewModel()
         animateLogo()
     }
 
@@ -27,13 +28,22 @@ class SplashActivity : AppCompatActivity() {
             alpha = 0f
             visibility = View.VISIBLE
             animate().alpha(1f).setDuration(1000L).withEndAction {
-                startAuth()
+                if (PreferenceHelper.defaultPrefs(this@SplashActivity).contains("id"))
+                    startMain()
+                else
+                    startAuth()
             }.start()
         }
     }
 
-    private fun observeViewModel() {
-
+    private fun startMain() {
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(
+            R.anim.enter_from_right_anim,
+            R.anim.exit_to_left_anim
+        )
+        finish()
     }
 
     private fun startAuth() {

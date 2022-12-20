@@ -6,6 +6,7 @@ import com.erasmus.sds.network.registration.RegistrationRepository
 import com.erasmus.sds.network.threads.ThreadsRepository
 import com.erasmus.sds.ui.auth.login.LoginViewModel
 import com.erasmus.sds.ui.auth.registration.RegistrationViewModel
+import com.erasmus.sds.ui.main.threads.ThreadsViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -15,11 +16,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 val viewModelModule = module {
     single { RegistrationViewModel(get()) }
     single { LoginViewModel(get()) }
+    single { ThreadsViewModel(get()) }
 }
 
 val repositoryModule = module {
     single { RegistrationRepository(get()) }
     single { LoginRepository(get()) }
+    single { ThreadsRepository(get()) }
 }
 
 val networkModule = module {

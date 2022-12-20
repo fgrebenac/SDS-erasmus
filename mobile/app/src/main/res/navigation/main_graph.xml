@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/faculty_fragment"
-        android:name="com.erasmus.sds.ui.main.faculty.FacultyFragment"
+        android:name="com.erasmus.sds.ui.main.threads.faculty.FacultyFragment"
         android:label="Faculty"
         tools:layout="@layout/fragment_threads">
 
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/social_fragment"
-        android:name="com.erasmus.sds.ui.main.social.SocialFragment"
+        android:name="com.erasmus.sds.ui.main.threads.social.SocialFragment"
         android:label="Social"
         tools:layout="@layout/fragment_threads">
 
@@ -31,7 +31,7 @@
 
     <dialog
         android:id="@+id/create_thread_fragment"
-        android:name="com.erasmus.sds.ui.main.threads.CreateThreadFragment"
+        android:name="com.erasmus.sds.ui.main.threads.new_thread.CreateThreadFragment"
         android:label="Create thread"
         tools:layout="@layout/fragment_create_thread" />
 
