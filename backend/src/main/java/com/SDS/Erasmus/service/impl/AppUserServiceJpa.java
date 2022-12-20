@@ -67,10 +67,10 @@ public class AppUserServiceJpa implements AppUserService {
     }
 
     @Override
-    public UUID logIn(AppUser user) {
+    public AppUser logIn(AppUser user) {
         Optional<AppUser> optionalUser = findByEmail(user.getEmail());
         if (optionalUser.isPresent() && optionalUser.get().getPassword().equals(user.getPassword())) {
-            return optionalUser.get().getId();
+            return optionalUser.get();
         }
         throw new RequestDeniedException("Email and password do not match");
     }

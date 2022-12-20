@@ -23,5 +23,5 @@ public interface AppUserService {
     Optional<AppUser> findByEmail(String email);
 
 
-    UUID logIn(AppUser user);
+    AppUser logIn(AppUser user);
 }

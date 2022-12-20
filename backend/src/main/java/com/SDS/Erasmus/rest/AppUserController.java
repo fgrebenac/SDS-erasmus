@@ -48,7 +48,7 @@ public class AppUserController {
 
     //simple log in method, jwt and encryption may be added later
     @PostMapping("/log-in")
-    public UUID logIn(@RequestBody AppUser user) {
+    public AppUser AppUser(@RequestBody AppUser user) {
         return appUserService.logIn(user);
     }
 
